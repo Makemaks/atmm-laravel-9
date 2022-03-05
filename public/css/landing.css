@@ -1,0 +1,48 @@
+body {
+	background-position:center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	height:100%;
+	width:100%;
+    background-image: url('/img/image.png');
+}
+.logo_image {
+    width: 350px; 
+}
+.heading-text {
+    font-size: 2.2em;
+    font-family: Trebuchet MS;
+    font-weight: lighter;
+    color: #4a4a4a;
+}
+.sub-heading-text {
+    font-size: 1em;
+    font-family: Trebuchet MS;
+    font-weight: lighter;
+    color: #4a4a4a;
+}
+.con-table {
+    width: 100%;
+    padding-top: 3%;
+}
+.input {
+    width: 75%;
+    height: 45px;
+    padding-left: 5%;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-style: none;
+}
+.btn-signup {
+    width: 50%;
+    height: 40px;
+    color: white;
+    background-color: #44a6f6;
+    border-style: none;
+    font-size: 1em;
+}
+input[class='input'] {
+    font-size: 1.2em;
+    outline: none;
+    color: black;
+}

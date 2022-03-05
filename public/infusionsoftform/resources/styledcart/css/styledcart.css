@@ -1,0 +1,363 @@
+a.backlink {
+    float: left;
+    margin-top: 10px;
+}
+
+div.layout-type {
+    text-align:center;
+    width: 120px;
+    padding: 5px 80px 5px 5px;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+div.message {
+    font-style: italic;
+    color: #808080;
+    margin: 20px 0 20px 10px;
+}
+
+div.theme-thumbnail, div.shadow2 , div.author{
+    width: 285px;
+}
+
+div.author {
+    font: italic 12px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #bbb;
+}
+
+div.theme-thumbnail {
+    position: relative;
+    text-align:center;
+    height:240px;
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    background: #ffffff;
+    z-index: 2;
+}
+
+div.shadow2 {
+    position: absolute;
+    height: 10px;
+    /*need to be smaller than div.theme.thumbnail*/
+    z-index: 1;
+}
+
+div.wrapper {
+    float: left;
+    width: 30%;
+    margin: 0 37px 15px 0;
+}
+
+div.third {
+    margin: 0 0 15px 0;
+}
+
+div.shadow2:before, div.shadow2:after {
+    position: absolute;
+    content: "";
+    bottom: 25px;
+    left: 7px;
+    width: 135px;
+    height: 20px;
+    max-width:300px;
+    -webkit-box-shadow: 0 15px 15px rgba(0,0,0, 0.3);
+    -moz-box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+    -ms-transform: rotate(-3deg);
+    transform: rotate(-3deg);
+}
+
+div.shadow2:after {
+    -webkit-transform: rotate(3deg);
+    -moz-transform: rotate(3deg);
+    -o-transform: rotate(3deg);
+    -ms-transform: rotate(3deg);
+    transform: rotate(3deg);
+    right: 7px;
+    left: auto;
+}
+
+div.fadehover {
+    position:relative;
+}
+
+div.layout-fadehover {
+    height: 140px;
+}
+
+div.style-theme-fadehover {
+    height: 200px;
+    width: 94%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+div.style-theme-nofadehover {
+    position:relative;
+    height: 200px;
+    width: 94%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img.normal {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+img.layout-selected {
+    -moz-box-shadow: 0 0 12px 4px #64aa3f;
+    -webkit-box-shadow: 0 0 12px 4px #64aa3f;
+    box-shadow: 0 0 12px 4px #64aa3f;
+}
+
+img.hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+div.new-theme-input {
+    display:inline-block;
+    margin: 10px;
+}
+
+div.right-aligned-buttons {
+    text-align: right;
+    margin: 0 2px 0 2px;
+}
+
+div.no-margins {
+    margin: 0;
+}
+
+span.css-label {
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+span.section-label {
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+td.custom-layout-image {
+    padding-right: 20px;
+}
+
+td.custom-html-buttons {
+    padding-top: 10px;
+    padding-bottom: 30px;
+    text-align: right;
+}
+
+td.element-label {
+    width: 225px;
+    vertical-align: middle;
+}
+
+input.element-label-value {
+    width: 300px;
+}
+
+div.error-div {
+    color: #aa3f3f;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+div.bottom-padding {
+    padding-bottom: 20px;
+}
+
+img.created-theme,img.choose-theme {
+    cursor: pointer;
+    width: 100%;
+    margin: 2px 0 3px -1px;
+    border: 1px solid #ddd;
+}
+
+img.created-theme-nopointer {
+    width: 100%;
+    margin: 2px 0 3px -1px;
+    border: 1px solid #ddd;
+}
+div.toolbar {
+    margin-top: 8px;
+    padding-top: 2px;
+    width: 95%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+div.themelabelbar {
+    text-align: left;
+    float:left;
+}
+div.iconbar {
+    text-align: right;
+    float:right;
+}
+
+div.iconbar > a ,div.iconbar >img {
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+div.custom-themes-header {
+    padding-left: 0;
+    padding-top: 10px;
+}
+
+div#defaultCreateNew {
+    position: relative;
+}
+
+div#createNewTheme {
+    height: 15px;
+    left: 325px;
+    top: 0;
+    width: 110px;
+}
+
+div.non-empty-default-theme {
+    position: absolute;
+}
+
+div.subsection-header {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+hr.section-separator {
+    padding-bottom: 10px;
+}
+
+h3 {
+    display: inline-block;
+}
+
+.preview-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 173px;
+    height: 173px;
+    background-image: url(../images/preview-banner.png?b=1.70.0.133149);
+    background-repeat: no-repeat;
+    z-index: 1;
+}
+
+.previewOverlay {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 70px;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    font: 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #888;
+    cursor: pointer;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.delete-theme {
+    position: absolute;
+    display: block;
+    width: 23px;
+    height: 23px;
+    top: -28px;
+    right: -27px;
+    padding: 10px;
+    z-index: 3;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.rename-theme {
+    opacity: 1;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.customSytleThemeName{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+div.author{
+    margin: 8px 0 20px 0;
+    height: 20px;
+    text-align: right;
+}
+
+.CodeMirror { border: 1px solid #dddddd; }
+
+.linkHeader {
+    color: #333333;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.linkHeader a {
+    cursor: pointer;
+}
+
+.linkDisplay {
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.bottomLinkDisplay {
+    margin-top: 5px;
+    margin-bottom: 60px;
+}
+
+.hosted-error {
+    color: red;
+    display: block;
+    padding-top: 5px;
+}
+
+.refresh-thumbnail-link {
+    cursor: pointer;
+}
+
+.g-recaptcha {
+    margin-bottom: 20px;
+}
+
+#loadingOverlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,.5);
+}
+
+.spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -24px;
+}

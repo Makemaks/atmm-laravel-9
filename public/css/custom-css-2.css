@@ -1,0 +1,237 @@
+.image-mc-lean-side-right {
+  max-width: 600px;
+}
+.explore-bg-image {
+  background-repeat: no-repeat!important;
+  background-clip: border-box!important;
+  background-position: right!important;
+  background-size: cover!important;
+  /* background: url('../../img/McLeanWeb1.jpg'); */
+}
+.user-videos-bg-image {
+  background-repeat: no-repeat!important;
+  background-clip: border-box!important;
+  background-position: right!important;
+  background-size: cover!important;
+  background: url('../../img/McLeanWeb1-edit.jpg');
+}
+.image-logo {
+  height: 80px;
+}
+.header-text {
+  font-size: 28px;
+}
+.unordered-list {
+  padding-left: 15px;
+}
+.unordered-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-indent: 10px;
+}
+.pb-3 {
+  padding-bottom: 12px;
+}
+.mt-3 {
+  margin-top: 12px;
+}
+.custom-primary {
+  background-color: #5ba6f0;
+}
+.custom-button {
+  width: 80%;
+  margin-top: 25px;
+  margin-left: 0;
+}
+.white--text {
+  color: white;
+}
+.pricing-padding {
+  padding-bottom: 0px;
+}
+button.control-button {
+  background-color: #d6d6d6;
+  color: black;
+  font-weight: normal;
+  border-radius: 30px;
+  min-width: 150px;
+}
+button.control-button-active {
+  background-color: #5ba6f0;
+  color: white;
+  font-weight: normal;
+  border-radius: 30px;
+  min-width: 150px;
+}
+.control-modal-body {
+  background-color: #202020;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: none!important;
+}
+.control-modal-header {
+  background-color: #202020;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-top: none!important;
+}
+.override-border-radius {
+  border-top: none!important;
+  border-top-left-radius: 0px!important;
+  border-top-right-radius: 0px!important;
+}
+@media screen and (max-width: 992px) {
+  .image-mc-lean-side-right {
+    max-width: 500px;
+  }
+  .explore-bg-image {
+    background-position: center;
+  }
+  .user-videos-bg-image {
+    background-position: 65%!important;
+  }
+}
+@media screen and (max-width: 768px) {
+  .pricing-padding {
+    padding-bottom: 25px;
+  }
+  .explore-bg-image {
+    background-position: 68%!important;
+  }
+}
+@media screen and (max-width: 480px) {
+  .image-logo {
+    height: 60px;
+  }
+}
+<style>
+a:hover {
+    /* color: #fff; */
+}
+a:focus {
+    /* color: #fff; */
+}
+.card_style {
+    width: 100%;
+    border-radius: 0;
+}
+
+.custom_col {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+    padding-bottom: 8px !important;
+}
+.ml-5 {
+    margin-left: 3.5rem!important;
+}
+.custom_col_card {
+    padding-right: 7px !important;
+    padding-left: 7px !important;
+    padding-bottom: 8px !important;
+}
+.title_date {
+    padding-top: 20px;
+    font-weight: bold;
+    color: #4b4b4b;
+}
+.title_key {
+    padding-top: 20px;
+    font-weight: bold;
+    color: #4b4b4b;
+    text-decoration: underline;
+}
+.col_padding {
+    padding-bottom: 25px;
+}
+.btn_default {
+    background-color: #d6d6d6;
+    color: #4b4b4b;
+    font-weight: bold;
+}
+.btn_default:hover {
+    background-color: #9b9b9b;
+    color: #fff;
+    font-weight: bold;
+}
+.btn_default:focus {
+    background-color: #9b9b9b;
+    color: #fff;
+    font-weight: bold;
+}
+a.active {
+    background-color: #5ba6f0;
+    color: white;
+    font-weight: bold;
+}
+.column_header {
+    font-weight: bold;
+    color: #4a4a4a;
+    font-size: 17px;
+}
+.button_group {
+    font-size: 35px;
+    color: #999999;
+}
+.button_group:hover {
+    font-size: 35px;
+    color: #666;
+}
+.more {
+    color: #4d4d4dd4;
+    font-weight: bold;
+    font-size: 19px;
+}
+.more:hover {
+    color: #515151;
+}
+.more:focus {
+    color: #515151;
+}
+.search {
+    border-radius: 999px;
+    background: #f1f1f1;
+    border-color: #f1f1f1;
+}
+td.active {
+  border-bottom: 2px solid #007bff;
+}
+td.unactive {
+  border-bottom: 2px solid lightgray;
+}
+.become-a-member-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    min-height:330px;
+}
+.custom-link:hover, .custom-link:active, .custom-link:visited {
+    color: #5ba6f0;
+}
+.explore {
+    width: auto !important;
+}
+.high_key {
+    cursor: pointer;
+}
+.low_key {
+    cursor: pointer;
+}
+.label {
+    font-size: 17px;
+    color: #696969;
+}
+.card-title-text {
+    font-size: 35px;
+    font-weight: bold;
+    color: #4a4a4a;
+}
+.image-logo-payment {
+  margin-left: 100px;
+}

@@ -1,0 +1,50 @@
+body {
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    height:100%;
+    width:100%;
+    background-image: url('/img/image.png');
+}
+.contact-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    padding: 80px 40px;
+    background: rgb(0, 0, 0, 0.6);
+}
+.top-logo {
+    position: absolute;
+    width: 50%;
+    overflow: hidden;
+    top: calc(-80px/2);
+    left: calc(35% - 40px);
+}
+.contact-form h2 {
+    font-size: 2.2em;
+    font-family: Trebuchet MS;
+    font-weight: lighter;
+    color: white;
+    text-align: center;
+}
+.hr-line {
+    background-color: white;
+}
+.but {
+    color: white;
+    border-color: white;
+    border-style: solid;
+    background-color: transparent;
+    border-width: thin;
+}
+.but:hover {
+    color: black;
+    background-color: white;
+}

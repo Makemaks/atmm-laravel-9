@@ -1,0 +1,18 @@
+
+.image-logo {
+  height:110px;
+}
+
+@media (min-width: 1200px) {
+  .image-logo {
+    padding-left:  135px;
+  }
+ 
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  .image-logo {
+    padding-left: 50px;
+  }
+}

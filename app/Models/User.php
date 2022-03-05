@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -41,4 +41,36 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function creditCard()
+    {
+        return $this->hasOne(CreditCard::class, 'credit_card_id', 'id');
+    }
+
+    public function subscriptionType()
+    {
+        return $this->hasOne(SubscriptionType::class, 'subscription_type_id', 'id');
+    }
+
+    public function trialLogs()
+    {
+        return $this->hasMany(InfusionsoftTrialLog::class, 'user_id', 'id')
+                    ->orderBy('id', 'desc');
+
+    }
+
+    public function nmiPayments()
+    {
+        return $this->hasMany(Nmipayments::class, 'user_id', 'id')
+                    ->orderBy('id', 'desc');
+
+    }
+
+    public function nmiTransactions()
+    {
+        return $this->hasMany(Nmitransactions::class, 'email', 'email')
+                    ->orderBy('id', 'desc');
+
+    }
+
 }
