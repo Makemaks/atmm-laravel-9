@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DISK', 'local'),
+    //'default' => env('FILESYSTEM_DISK', 'local'),
+    'default' => env('FILESYSTEM_DRIVER', 'public'),
 
     /*
     |--------------------------------------------------------------------------
@@ -27,6 +28,8 @@ return [
     | Supported Drivers: "local", "ftp", "sftp", "s3"
     |
     */
+
+    'aws_url' => env('AWS_URL', ''),
 
     'disks' => [
 
