@@ -14645,10 +14645,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     showVideoInModal: function showVideoInModal(title, video, poster) {
       var videoPlayer = $('#videoModal video')[0];
-      $('#videoModal').modal({
-        keyboard: false,
-        backdrop: 'static'
-      });
+      $('#videoModal').modal('show');
       $('#videoModal .modal-title').text(title);
       videoPlayer.src = video;
       videoPlayer.poster = poster;

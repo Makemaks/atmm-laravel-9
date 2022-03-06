@@ -182,7 +182,12 @@
             <div class="videos">
                 <div class="row carousel">
                     <div class="col-md-4" v-for="fireSidesVideo in fireSides.data">
-                        <div class="video-container" @click="showVideoInModal(fireSidesVideo.title, '{{ env('AWS_URL') }}' + fireSidesVideo.video, (fireSidesVideo.image ? '{{ env('AWS_URL') }}' + fireSidesVideo.image : '/img/white-video-placeholder.jpg'))">
+                        <div class="video-container"
+                            data-toggle="modal"
+                            data-backdrop='static'
+                            data-keyboard="false"
+                            @click="showVideoInModal(fireSidesVideo.title, '{{ env('AWS_URL') }}' + fireSidesVideo.video, (fireSidesVideo.image ? '{{ env('AWS_URL') }}' + fireSidesVideo.image : '/img/white-video-placeholder.jpg'))"
+                          >
                             <div class="bg-image" :style="{ backgroundImage: 'url(' + (fireSidesVideo.image ? '{{ env('AWS_URL') }}' + fireSidesVideo.image : '/img/white-video-placeholder.jpg') + ')' }"></div>
                             <video width="100%" controls :[poster]="(fireSidesVideo.image ? '{{ env('AWS_URL') }}' + fireSidesVideo.image : '/img/white-video-placeholder.jpg')" class="video">
                             <source :src="'{{ env('AWS_URL') }}' + fireSidesVideo.video" type="video/mp4">
@@ -204,7 +209,12 @@
                 <div class="videos">
                     <div class="row carousel">
                         <div class="col-md-4" v-for="songwriterSundaySchoolVideo in songwriterSundaySchool.data">
-                            <div class="video-container" @click="showVideoInModal(songwriterSundaySchoolVideo.title, '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.video, (songwriterSundaySchoolVideo.image ? '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.image : '/img/dark-video-placeholder.jpg'))">
+                            <div class="video-container"
+                                data-toggle="modal"
+                                data-backdrop='static'
+                                data-keyboard="false"
+                                @click="showVideoInModal(songwriterSundaySchoolVideo.title, '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.video, (songwriterSundaySchoolVideo.image ? '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.image : '/img/dark-video-placeholder.jpg'))"
+                            >
                                 <div class="bg-image" :style="{ backgroundImage: 'url(' + (songwriterSundaySchoolVideo.image ? '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.image : '/img/dark-video-placeholder.jpg') + ')' }"></div>
                                 <video width="100%" controls :[poster]="(songwriterSundaySchoolVideo.image ? '{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.image : '/img/dark-video-placeholder.jpg')" class="video">
                                 <source :src="'{{ env('AWS_URL') }}' + songwriterSundaySchoolVideo.video" type="video/mp4">
@@ -226,7 +236,12 @@
             <div class="videos">
                 <div class="row carousel">
                     <div class="col-md-4" v-for="memoryLaneVideo in memoryLane.data">
-                        <div class="video-container" @click="showVideoInModal(memoryLaneVideo.title, '{{ env('AWS_URL') }}' + memoryLaneVideo.video, (memoryLaneVideo.image ? '{{ env('AWS_URL') }}' + memoryLaneVideo.image : '/img/white-video-placeholder.jpg'))">
+                        <div class="video-container"
+                            data-toggle="modal"
+                            data-backdrop='static'
+                            data-keyboard="false"
+                            @click="showVideoInModal(memoryLaneVideo.title, '{{ env('AWS_URL') }}' + memoryLaneVideo.video, (memoryLaneVideo.image ? '{{ env('AWS_URL') }}' + memoryLaneVideo.image : '/img/white-video-placeholder.jpg'))"
+                            >
                             <div class="bg-image" :style="{ backgroundImage: 'url(' + (memoryLaneVideo.image ? '{{ env('AWS_URL') }}' + memoryLaneVideo.image : '/img/white-video-placeholder.jpg') + ')' }"></div>
                             <video width="100%" controls :[poster]="(memoryLaneVideo.image ? '{{ env('AWS_URL') }}' + memoryLaneVideo.image : '/img/white-video-placeholder.jpg')" class="video">
                             <source :src="'{{ env('AWS_URL') }}' + memoryLaneVideo.video" type="video/mp4">
@@ -248,7 +263,12 @@
             <div class="videos">
                 <div class="row carousel">
                     <div class="col-md-4" v-for="miscellaneousMichaelVideo in miscellaneousMichael.data">
-                        <div class="video-container" @click="showVideoInModal(miscellaneousMichaelVideo.title, '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.video, (miscellaneousMichaelVideo.image ? '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.image : '/img/dark-video-placeholder.jpg'))">
+                        <div class="video-container"
+                            data-toggle="modal"
+                            data-backdrop='static'
+                            data-keyboard="false"
+                            @click="showVideoInModal(miscellaneousMichaelVideo.title, '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.video, (miscellaneousMichaelVideo.image ? '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.image : '/img/dark-video-placeholder.jpg'))"
+                          >
                             <div class="bg-image" :style="{ backgroundImage: 'url(' + (miscellaneousMichaelVideo.image ? '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.image : '/img/dark-video-placeholder.jpg') + ')' }"></div>
                             <video width="100%" controls :[poster]="(miscellaneousMichaelVideo.image ? '{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.image : '/img/dark-video-placeholder.jpg')" class="video">
                             <source :src="'{{ env('AWS_URL') }}' + miscellaneousMichaelVideo.video" type="video/mp4">

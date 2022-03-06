@@ -148,14 +148,9 @@ export default {
             }, 500);
         },
         showVideoInModal(title, video, poster) {
-
             const videoPlayer = $('#videoModal video')[0];
 
-            $('#videoModal').modal({
-                keyboard: false,
-                backdrop: 'static'
-            });
-
+            $('#videoModal').modal('show');
             $('#videoModal .modal-title').text(title);
 
             videoPlayer.src = video;
