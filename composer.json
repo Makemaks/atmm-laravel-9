@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4",
         "lcobucci/jwt": "^4.1",
+        "league/flysystem": "^3.0",
         "league/flysystem-aws-s3-v3": "^3.0",
         "mavinoo/laravel-batch": "^2.3",
         "pragmarx/google2fa": "^8.0",

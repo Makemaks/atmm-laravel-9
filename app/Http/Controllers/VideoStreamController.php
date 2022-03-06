@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\VideoDetail;
+use App\Models\VideoDetail;
 use Illuminate\Http\Request;
 use App\Helpers\StreamFile;
 
@@ -13,7 +13,7 @@ class VideoStreamController extends Controller
         try {
             $id = $request->id;
             $resolution = $request->resolution;
-            $video = VideoDetail::findOrFail($id);
+            $video = VideoDetail::findOrFail($id);  
 
             if( $request->resolution == 480)
                 $videopath = $video->video_480;
@@ -23,7 +23,7 @@ class VideoStreamController extends Controller
                 $videopath = $video->video_1080;
             elseif( $request->resolution == 'default')
                 $videopath = $video->video_default;
-            else 
+            else
                 $videopath = $video->video;
 
             //$stream = new StreamFile($video->video);
@@ -33,5 +33,5 @@ class VideoStreamController extends Controller
             throw $exception;
         }
     }
-    
+
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Storage;
 class StreamFile
 {
     private $filePath = "";
-    
+
     function __construct($filePath)
     {
         $this->filePath = $filePath;
@@ -61,7 +61,7 @@ class StreamFile
     }
 
     function streamFile()
-    {   
+    {
         $this->stream();
     }
 }

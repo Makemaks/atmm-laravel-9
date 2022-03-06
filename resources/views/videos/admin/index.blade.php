@@ -106,17 +106,17 @@
                             <td>{{$video->videoCategory->description}}</td>
                             <td>{{$video->date_release}}</td>
                             <td>
-                                <a href="/view-video/{{$video->id}}" target="_blank" rel="noopener noreferrer">{{$video->video}}</a>
+                                <a href="{{\Config::get('filesystems.aws_url')}}{{$video->video}}" target="_blank" rel="noopener noreferrer">{{$video->video}}</a>
                                 <a onclick="$('#other_video_resolution_{{$video->id}}').toggle('slow');"class="btn btn-success btn-circle"><i class="fa fa-arrows-alt-v"></i></a>
                                 <div id="other_video_resolution_{{$video->id}}" style="display: none;">
                                     <b>480: </b>
-                                    <a href="/view-video-compress/{{$video->id}}/480" target="_blank" rel="noopener noreferrer">{{$video->video_480}}</a><br>
+                                    <a href="{{\Config::get('filesystems.aws_url')}}{{$video->video_480}}" target="_blank" rel="noopener noreferrer">{{$video->video_480}}</a><br>
                                     <b>720: </b>
-                                    <a href="/view-video-compress/{{$video->id}}/720" target="_blank" rel="noopener noreferrer">{{$video->video_720}}</a><br>
+                                    <a href="{{\Config::get('filesystems.aws_url')}}{{$video->video_720}}" target="_blank" rel="noopener noreferrer">{{$video->video_720}}</a><br>
                                     <b>1080: </b>
-                                    <a href="/view-video-compress/{{$video->id}}/1080" target="_blank" rel="noopener noreferrer">{{$video->video_1080}}</a><br>
+                                    <a href="{{\Config::get('filesystems.aws_url')}}{{$video->video_1080}}" target="_blank" rel="noopener noreferrer">{{$video->video_1080}}</a><br>
                                     <b>Compress: </b>
-                                    <a href="/view-video-compress/{{$video->id}}/default" target="_blank" rel="noopener noreferrer">{{$video->video_default}}</a><br>
+                                    <a href="{{\Config::get('filesystems.aws_url')}}{{$video->video_default}}" target="_blank" rel="noopener noreferrer">{{$video->video_default}}</a><br>
                                 </div>
                             </td>
                             <td>

@@ -47,6 +47,18 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function showLoginForm()
+    {
+        return redirect('/');
+        // return view('welcome');
+    }
+
+
     public function doLogin (Request $request) {
 
 
