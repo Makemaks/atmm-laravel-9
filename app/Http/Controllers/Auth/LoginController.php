@@ -62,7 +62,7 @@ class LoginController extends Controller
     public function doLogin (Request $request) {
 
 
-      /*
+
       $isGoogleValid = 1;
       if($request->email == 'admin@songwriter.com') {
         if(!$request->one_time_password) {
@@ -77,7 +77,7 @@ class LoginController extends Controller
             return back()->with('error', 'Invalid OTP');
         }
       }
-      */
+      
 
         $userwhotriedtologgedin = User::where('email', $request->email)->first();
         if($userwhotriedtologgedin) {
