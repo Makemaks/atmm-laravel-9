@@ -231,7 +231,7 @@
                       </label>
                       </div>
                       <div class="col-md-6">
-                      @php
+                      @php /*
                         Google2FA::setQRCodeBackend('svg');
                         $qr_code_source = Google2FA::getQRCodeInline(
                             'All Things Michael Mclean',
@@ -239,6 +239,7 @@
                             'JA5F4SKHZIFA25GW'
                         );
                         echo $qr_code_source;
+                        */
                       @endphp
                       </div>
                     </div>
