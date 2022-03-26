@@ -117,7 +117,7 @@
             <ul class="contact_details">
                 <li><i class="fas fa-map-marker-alt"></i> P.O. Box 251, Heber City, Ut 84032</li>
                 <!-- <li><i class="fas fa-envelope"></i> <a href="mailto:admin@songwritersundayschool.com">admin@songwritersundayschool.com</a></li> -->
-                <li><i class="fas fa-phone"></i> <a href="(800) 976-39713">(800) 976-3971</a></li>
+                <li><i class="fas fa-phone"></i> <a href="(310) 409-5333">(310) 409-5333</a></li>
             </ul>
         </div>
         <div class="col-md-6 d-xl-block d-lg-block d-md-block d-none position-relative">
