@@ -88,7 +88,7 @@
                                 @{{ app_activity_log.device_os }}
                                 v @{{ app_activity_log.device_version }}
                             </td>
-                            <td>@{{ app_activity_log.created_at }}</td>
+                            <td>@{{ app_activity_log.created_at | formatDate }}</td>
                             <td>@{{ app_activity_log.device_name }}</td>
                             <td>
                               <button

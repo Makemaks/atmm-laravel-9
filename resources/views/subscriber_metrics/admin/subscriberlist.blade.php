@@ -36,12 +36,29 @@
                       <label style="padding:8px;">Total : @{{  total_rows }} </label>
                     </caption>
                     <thead>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Date Signup</th>
+                        <th>
+                          <a href="#" @click="sortSubscriberList('name')">
+                              Name
+                              <i v-if="sort_order == 'asc'" class="fas fa-chevron-down"></i>
+                              <i v-if="sort_order == 'desc'" class="fas fa-chevron-up"></i>
+                          </a>
+                        </th>
+                        <th>
+                          <a href="#" @click="sortSubscriberList('email')">
+                              Email
+                              <i v-if="sort_order == 'asc'" class="fas fa-chevron-down"></i>
+                              <i v-if="sort_order == 'desc'" class="fas fa-chevron-up"></i>
+                          </a>
+                        </th>
+                        <th>
+                          <a href="#" @click="sortSubscriberList('created_at')">
+                              Date Signup
+                              <i v-if="sort_order == 'asc'" class="fas fa-chevron-down"></i>
+                              <i v-if="sort_order == 'desc'" class="fas fa-chevron-up"></i>
+                          </a></th>
                         <th>Last Payment </th>
                         <th>Status</th>
-                        <th>Subsscription Type</th>
+                        <th>Subscription Type</th>
                         <th>Registered</th>
                         <th>Action</th>
                     </thead>
@@ -49,7 +66,7 @@
                         <tr v-for="subscriber,key in allSubscribers">
                             <td>@{{subscriber.name}}</td>
                             <td>@{{subscriber.email}}</td>
-                            <td>@{{subscriber.created_at}}</td>
+                            <td>@{{subscriber.created_at | formatDate }}</td>
                             <td>
                                 <span v-if="subscriber.nmi_transactions.length > 0">
                                   @{{subscriber.nmi_transactions[0].date_formatted}}

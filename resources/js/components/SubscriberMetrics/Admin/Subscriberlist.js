@@ -1,5 +1,12 @@
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import moment from 'moment';
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('YYYY-MM-DD hh:mm')
+    }
+});
 
 export default {
 
@@ -34,6 +41,18 @@ export default {
     Loading,
   },
   methods: {
+    sortSubscriberList (sortBy) {
+      if(this.sort_field != sortBy) {
+          this.sort_order = 'asc'
+      } else {
+        if(this.sort_order == 'asc')
+          this.sort_order = 'desc'
+        else
+          this.sort_order = 'asc'
+      }
+      this.sort_field = sortBy
+      this.getSubscriberList()
+    },
       deleteSubscriber (id) {
         $('#exampleModalCenter').modal('show');
         const action = '/subscriber-metrics/' + id

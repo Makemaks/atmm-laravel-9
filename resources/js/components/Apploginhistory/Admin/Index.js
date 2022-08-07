@@ -1,6 +1,14 @@
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import JsonTree from 'vue-json-tree'
+import moment from 'moment';
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('YYYY-MM-DD hh:mm')
+    }
+});
+
 Vue.component('json-tree', JsonTree)
 
 export default {
@@ -17,6 +25,12 @@ export default {
         },
         sort_field: 'id',
         sort_order: 'desc',
+        all_device_os: [],
+        all_device_version: [],
+        all_appLogIn_user: [],
+        select_device_os: '',
+        select_device_version: '',
+        select_appLogIn_user: '',
 
       }
   },
@@ -46,6 +60,11 @@ export default {
       this.sort_field = sortBy
       this.getAppLoginHistoryList()
     },
+
+    filterByAppLoginHistoryList () {
+      this.getAppLoginHistoryList('search')
+    },
+
     getAppLoginHistoryList (param='') {
         if(param == 'search')
             var pageno = 1
@@ -58,6 +77,9 @@ export default {
             page: pageno,
             sort_order: this.sort_order,
             sort_field: this.sort_field,
+            select_device_os: this.select_device_os,
+            select_device_version: this.select_device_version,
+            select_appLogIn_user: this.select_appLogIn_user,
         }
         axios({
             method: 'get',
@@ -73,6 +95,9 @@ export default {
           this.isLoadingAppLoginHistoryList = false
           this.allAppLoginHistory = res.data.data.data
           this.pagination = res.data.pagination
+          this.all_device_os = res.data.all_device_os
+          this.all_device_version = res.data.all_device_version
+          this.all_appLogIn_user = res.data.all_appLogIn_user
         })
         .catch(error => {
           console.log(error)

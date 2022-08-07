@@ -14,13 +14,13 @@ export default {
         },
         sort_field: 'product_name',
         sort_order: 'asc',
+        selectedProduct: [],
       }
   },
   mounted() {
     this.getProductList ()
   },
   watch: {
-
   },
   components: {
     Loading,
@@ -33,11 +33,10 @@ export default {
           text: 'There are payments made on this Plan. Please remove first all the payments under this Plan',
           type: 'error'
         })
-      } else {
-        $('#exampleModalCenter').modal({
-          keyboard: false,
-          backdrop: 'static'
-        });
+      }
+      else
+      {
+        $('#exampleModalCenter').modal('show');
         const action = '/products/' + id
         this.$refs.delete_form.setAttribute('action', action)
       }
@@ -91,19 +90,5 @@ export default {
           })
         })
     },
-
-    checkAll () {
-        this.allProducts.forEach((song) => {
-            prod.checked = true;
-        });
-        this.$forceUpdate();
-    },
-    unCheckAll () {
-        this.allProducts.forEach((song) => {
-            prod.checked = false;
-        });
-        this.$forceUpdate();
-    },
-
-  }
+  },
 }

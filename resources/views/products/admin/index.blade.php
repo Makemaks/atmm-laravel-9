@@ -8,9 +8,19 @@
                 <searched :search="search" @gosearch="getProductList('search')"></searched>
             </div>
             <div class="col-md-6 text-right">
-                <a type="button" class="btn btn-danger">
-                    <i class="fa fa-trash"></i>&nbsp; Delete
-                </a>
+              <button
+                  type="button"
+                  id="delete_multiple"
+                  :data-id="selectedProduct"
+                  class="btn btn-danger"
+                  data-toggle="modal_test"
+                  data-backdrop='static'
+                  data-keyboard="false"
+                  data-target="#exampleModalCenter"
+                  @click="deleteProduct(selectedProduct,0)"
+              >
+                  <i class="fa fa-trash">&nbsp; Delete</i>
+              </button>
                 <a type="button" href="/products/create" class="btn btn-primary" data-dismiss="modal">
                     <i class="fa fa-plus"></i>&nbsp; Create
                 </a>
@@ -24,7 +34,7 @@
               <loading :active.sync="isLoadingProductList" :can-cancel="false" :is-full-page="false"> </loading>
               <table class="table table-hover custom-table-css">
                   <thead>
-                      <th><input name="" type="checkbox"></th>
+                      <th></th>
                       <th>
                         <a href="#" @click="sortProductList('nmi_api_plan_id')">
                             NMI PlanID
@@ -58,7 +68,7 @@
                   </thead>
                   <tbody v-if="allProducts.length > 0">
                       <tr v-for="prod,key in allProducts">
-                          <td><input type="checkbox" v-model="prod.checked" :checked="prod.checked"></td>
+                          <td><input type="checkbox" v-model="selectedProduct" :value="prod.id"></td>
                           <td>@{{prod.nmi_api_plan_id}}</td>
                           <td>
                             <span v-if="prod.nmi_payments.length > 0">
@@ -102,7 +112,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -111,10 +121,10 @@
                         </h4>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete?
+                        Are you sure you want to delete the product?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                         <form ref="delete_form" action="" method="post">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}

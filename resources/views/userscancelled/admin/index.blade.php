@@ -39,8 +39,8 @@
                             <td>@{{ userscancelled.user.name }}</td>
                             <td>@{{ userscancelled.email }}</td>
                             <td>@{{ userscancelled.reason_to_stop }}</td>
-                            <td>@{{ userscancelled.user.created_at }}</td>
-                            <td>@{{ userscancelled.created_at }}</td>
+                            <td>@{{ userscancelled.user.created_at | formatDate }}</td>
+                            <td>@{{ userscancelled.created_at | formatDate }}</td>
                         </tr>
                     </tbody>
                 </table>

@@ -8,6 +8,29 @@
             <div class="col-md-6">
                     <searched :search="search" @gosearch="getAppLoginHistoryList('search')"></searched>
             </div>
+            <div class="col-md-6">
+                <select v-model="select_appLogIn_user" name="select_appLogIn_user" id="select_appLogIn_user" @change="filterByAppLoginHistoryList()">
+                  <option value="">--- All User ---</option>
+                  <option v-for="user,key in all_appLogIn_user" :value="user.user_id">
+                        @{{  (user.user.name) }}
+                  </option>
+                </select>
+
+                <select v-model="select_device_os" name="select_device_os" id="select_device_os" @change="filterByAppLoginHistoryList()">
+                  <option value="">--- All OS ---</option>
+                  <option v-for="os,key in all_device_os" :value="os.device_os">
+                        @{{  (os.device_os) }}
+                  </option>
+                </select>
+
+                <select v-model="select_device_version" name="select_device_version" id="select_device_version" @change="filterByAppLoginHistoryList()">
+                  <option value="">--- All Version ---</option>
+                  <option v-for="device,key in all_device_version" :value="device.device_version">
+                        Version: @{{  (device.device_version) }}
+                  </option>
+                </select>
+
+            </div>
         </div>
         <div class="row panel panel-default" style="margin-top: 20px;" >
             <div class="panel-body" style=" padding: 0px;">
@@ -25,7 +48,7 @@
                             <td>@{{ login_history.user.name }}</td>
                             <td>@{{ login_history.device_os }}</td>
                             <td>@{{ login_history.device_version }}</td>
-                            <td>@{{ login_history.created_at }}</td>
+                            <td>@{{ login_history.created_at | formatDate }}</td>
                             <td>
                                 <button
                                     type="button"

@@ -155,8 +155,16 @@ class ProductsController extends Controller
             if(!$this->isCurrentUserAdmin())
                 abort(404);
 
-            $products = Products::findOrFail($id);
-            $products->delete();
+            $product_user_id = explode(',' , $id);
+
+            foreach($product_user_id as $id)
+            {
+              $product = Products::findOrFail($id);
+              if($product != null || $product != '')
+              {
+                $product->delete();
+              }
+            }
 
             return back();
         } catch (\Throwable $th) {

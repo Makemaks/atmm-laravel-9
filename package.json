@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "aplayer": "github:emiecsviphp/APlayer",
+        "moment": "^2.29.4",
         "vue-carousel": "^0.18.0",
         "vue-expandable-image": "^0.1.0",
         "vue-json-tree": "^0.4.3",

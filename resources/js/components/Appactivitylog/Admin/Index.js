@@ -1,6 +1,14 @@
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import JsonTree from 'vue-json-tree'
+import moment from 'moment';
+
+Vue.filter('formatDate', function(value) {
+    if (value) {
+        return moment(String(value)).format('YYYY-MM-DD hh:mm')
+    }
+});
+
 Vue.component('json-tree', JsonTree)
 
 export default {

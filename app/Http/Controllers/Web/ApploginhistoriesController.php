@@ -22,11 +22,33 @@ class ApploginhistoriesController extends Controller
 
             if($request->ajax()){
 
+              $all_device_os = Apploginhistory::distinct()->get(['device_os']);
+              $all_device_version = Apploginhistory::distinct()->get(['device_version']);
+              $all_appLogIn_user = Apploginhistory::with('user')->distinct()->get(['user_id']);
+
+              $filter_by_fields = array();
+              if( $request->select_appLogIn_user != '' )
+              {
+                $filter_by_fields['user_id'] = trim($request->select_appLogIn_user);
+                $all_device_os = Apploginhistory::select('device_os')->where('user_id',$filter_by_fields['user_id'])->distinct()->get(['device_os']);
+              }
+              if( $request->select_device_os != '' )
+              {
+                $filter_by_fields['device_os'] = trim($request->select_device_os);
+                $all_device_version = Apploginhistory::select('device_version')->where('device_os',$filter_by_fields['device_os'])->distinct()->get(['device_version']);        
+              }
+              if( $request->select_device_version != '' )
+              {
+                $filter_by_fields['device_version'] = trim($request->select_device_version);
+              }
+
               $login_history = $this->paginate($request, [
                   'items' => (new Apploginhistory())->with('user'),
                   's_fields' => ['device_os'],
                   'sortBy' => $request->sort_field,
                   'sortOrder' => $request->sort_order,
+                  'filter_by_fields' => $filter_by_fields,
+
               ]);
               $response = [
                    'pagination' => [
@@ -38,6 +60,9 @@ class ApploginhistoriesController extends Controller
                        'to' => $login_history->lastItem()
                    ],
                    'data' => $login_history,
+                   'all_device_os' => $all_device_os,
+                   'all_device_version' => $all_device_version,
+                   'all_appLogIn_user' => $all_appLogIn_user,
                    'aws_url' => \Config::get('filesystems.aws_url'),
                ];
                return response()->json($response);
