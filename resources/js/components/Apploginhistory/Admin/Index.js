@@ -31,6 +31,7 @@ export default {
         select_device_os: '',
         select_device_version: '',
         select_appLogIn_user: '',
+        selectedAppLogInHistory: [],
 
       }
   },
@@ -44,11 +45,16 @@ export default {
     Loading,
   },
   methods: {
+    deleteAppLogIn (id) {
+        $('#exampleModalCenter').modal('show');
+        const action = '/loginhistory/' + id
+        this.$refs.delete_form.setAttribute('action', action)
+    },
     viewDeviceFullInfo(id) {
       $("#deviceFullInfo_"+id).modal('show');
     },
 
-    sortAlbumList (sortBy) {
+    sortAppLogInList (sortBy) {
       if(this.sort_field != sortBy) {
           this.sort_order = 'asc'
       } else {

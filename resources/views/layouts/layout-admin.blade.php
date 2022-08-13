@@ -244,10 +244,10 @@
 							</li>
 
 							<li>
-								<a href="/loginhistory"><i class="fa fa-gear fa-fw"></i> App Login History <span class="fa arrow"></span> </a>
+								<a href="/loginhistory"><i class="fa fa-gear fa-fw"></i> App Login History</span> </a>
 							</li>
 							<li>
-								<a href="/appactivitylog"><i class="fa fa-gear fa-fw"></i> App Activity Log <span class="fa arrow"></span> </a>
+								<a href="/appactivitylog"><i class="fa fa-gear fa-fw"></i> App Activity Log</span> </a>
 							</li>
 
 						</ul>

@@ -1,11 +1,25 @@
 @extends('layouts.layout-admin')
 @section('page_heading','Create')
+@section('style')
+<style>
+.alert {
+  padding: 10px;
+  background-color: #92d3ed;
+  color: white;
+  width: 520px;
+  margin-left: 17%;
+}
+</style>
+@endsection
 @section('section')
 <admin-create-product-component inline-template>
     <div class="col-sm-12">
         <div class="panel panel-default">
             <div class="panel-body">
                 @include('layouts.flash_messages')
+                <div class="alert">
+                  <strong>Notice &nbsp;<i class="fas fa-exclamation"></i></strong>&nbsp; Inputted NMI API Plan ID should not exist in the current Products.
+                </div>
                 <form
                     class="form-horizontal was-validated"
                     @submit.prevent="saveProduct"

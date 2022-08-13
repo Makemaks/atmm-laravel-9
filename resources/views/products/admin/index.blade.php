@@ -1,8 +1,37 @@
 @extends('layouts.layout-admin')
 @section('page_heading','Products')
+@section('style')
+<style>
+
+  .closebtn {
+    margin-left: 18px;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .alert {
+    width: auto;
+  }
+
+</style>
+@endsection
 @section('section')
 <admin-index-products-component inline-template>
     <div class="col-sm-12">
+      @if (Session::has('messageProductError'))
+        <div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i>
+          &nbsp; {{ Session::get('messageProductError') }}
+          <span class="closebtn" style="color: red;" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+      @endif
+      @if (Session::has('messageProductSuccess'))
+        <div class="alert alert-success"><i class="fas fa-check-circle"></i>
+          &nbsp; {{ Session::get('messageProductSuccess') }}
+          <span class="closebtn" style="color: green;" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+      @endif
         <div class="row">
             <div class="col-md-6">
                 <searched :search="search" @gosearch="getProductList('search')"></searched>
@@ -17,7 +46,7 @@
                   data-backdrop='static'
                   data-keyboard="false"
                   data-target="#exampleModalCenter"
-                  @click="deleteProduct(selectedProduct,0)"
+                  @click="deleteProduct(selectedProduct)"
               >
                   <i class="fa fa-trash">&nbsp; Delete</i>
               </button>

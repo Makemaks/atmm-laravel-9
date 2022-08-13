@@ -39,19 +39,25 @@ export default {
         ip_address_details: '',
         ip_address: '',
 
+        selectedAppActLog:[],
+
       }
   },
   mounted() {
     this.getAppActivityLogList();
   },
   watch: {
-
   },
   components: {
     Loading,
   },
   methods: {
-    sortAlbumList (sortBy) {
+    deleteAppActLog (id) {
+        $('#exampleModalCenter').modal('show');
+        const action = '/appactivitylog/' + id
+        this.$refs.delete_form.setAttribute('action', action)
+    },
+    sortAppActList (sortBy) {
       if(this.sort_field != sortBy) {
           this.sort_order = 'asc'
       } else {

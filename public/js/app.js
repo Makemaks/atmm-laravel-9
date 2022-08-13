@@ -8840,7 +8840,8 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
       select_device_name: '',
       isLoadingIPAddressDetails: false,
       ip_address_details: '',
-      ip_address: ''
+      ip_address: '',
+      selectedAppActLog: []
     };
   },
   mounted: function mounted() {
@@ -8851,7 +8852,12 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
     Loading: (vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default())
   },
   methods: {
-    sortAlbumList: function sortAlbumList(sortBy) {
+    deleteAppActLog: function deleteAppActLog(id) {
+      $('#exampleModalCenter').modal('show');
+      var action = '/appactivitylog/' + id;
+      this.$refs.delete_form.setAttribute('action', action);
+    },
+    sortAppActList: function sortAppActList(sortBy) {
       if (this.sort_field != sortBy) {
         this.sort_order = 'asc';
       } else {
@@ -8989,7 +8995,8 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
       all_appLogIn_user: [],
       select_device_os: '',
       select_device_version: '',
-      select_appLogIn_user: ''
+      select_appLogIn_user: '',
+      selectedAppLogInHistory: []
     };
   },
   mounted: function mounted() {
@@ -9000,10 +9007,15 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
     Loading: (vue_loading_overlay__WEBPACK_IMPORTED_MODULE_0___default())
   },
   methods: {
+    deleteAppLogIn: function deleteAppLogIn(id) {
+      $('#exampleModalCenter').modal('show');
+      var action = '/loginhistory/' + id;
+      this.$refs.delete_form.setAttribute('action', action);
+    },
     viewDeviceFullInfo: function viewDeviceFullInfo(id) {
       $("#deviceFullInfo_" + id).modal('show');
     },
-    sortAlbumList: function sortAlbumList(sortBy) {
+    sortAppLogInList: function sortAppLogInList(sortBy) {
       if (this.sort_field != sortBy) {
         this.sort_order = 'asc';
       } else {

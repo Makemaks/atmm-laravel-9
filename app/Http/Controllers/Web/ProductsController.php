@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Models\Products;
+use App\Models\Nmipayments;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Products\Store;
 use App\Http\Requests\Products\Update;
+use Session;
+
 
 class ProductsController extends Controller
 {
@@ -78,9 +81,16 @@ class ProductsController extends Controller
           try {
               if(!$this->isCurrentUserAdmin()) {
                   return response()->json('error', 404);
-              } else {
-                  $products = Products::create($request->all());
-                  return response()->json('success', 200);
+              } else
+              {
+                  if($request->nmi_api_plan_id == 1)
+                  {
+                    return response()->json('error', 404);
+                  }
+                  else{
+                    $products = Products::create($request->all());
+                    return response()->json('success', 200);
+                  }
               }
           } catch (\Throwable $th) {
               throw $th;
@@ -162,7 +172,17 @@ class ProductsController extends Controller
               $product = Products::findOrFail($id);
               if($product != null || $product != '')
               {
-                $product->delete();
+                  if($product->nmi_api_plan_id == 1)
+                  {
+                    Session::flash('messageProductError', "There are payments made on this ($product->product_name) plan. Please remove first all the payments under this plan");
+                    return back();
+                  }
+                  else
+                  {
+                    Session::flash('messageProductSuccess', "Product deleted successfully");
+                    $product->delete();
+                  }
+
               }
             }
 

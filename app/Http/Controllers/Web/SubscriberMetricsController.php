@@ -174,6 +174,7 @@ class SubscriberMetricsController extends Controller
                       })
 
                       ->groupBy('sa.author_id')
+                      ->groupBy('authors.name')
                       ->setBindings([$request->date_start, $request->date_end])
                       ->get();
 
