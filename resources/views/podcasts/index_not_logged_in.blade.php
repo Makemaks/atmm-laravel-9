@@ -1,6 +1,5 @@
 @extends('layouts.layout')
-
-@section('content')
+@section('style')
 <style>
 a:hover {
     color: #fff;
@@ -45,12 +44,16 @@ a.active {
     border-radius: 10px;
 }
 </style>
+@endsection
+@section('content')
+
+<index-not-logged-in-component inline-template>
 <div class="container-fluid">
     <div  style="background-image: linear-gradient(#dbdbdb, #fbfbfb);">
         <div class="row" style="margin-right: 0">
             <div class="col-sm-12 songwriter_sunday_school">
                 <div class="row">
-                    ALL THINGS 
+                    ALL THINGS
                 </div>
                 <div class="row">
                     MICHAEL
@@ -126,20 +129,20 @@ a.active {
             </div>
         </div>
         <div class="row" id='video1'>
-            <div class="col-lg-3 custom_col col-sm-12 col-md-12">
-                <video width="100%" height="165px" controls>
+            <div class="col-lg-3 custom_col col-sm-12 col-md-12" >
+                <video width="100%" height="165px" @play="transferToPayment()" controls>
                 </video>
             </div>
             <div class="col-lg-3 custom_col col-sm-12 col-md-12">
-                <video width="100%" height="165px" controls>
+                <video width="100%" height="165px" @play="transferToPayment()" controls>
                 </video>
             </div>
             <div class="col-lg-3 custom_col col-sm-12 col-md-12">
-                <video width="100%" height="165px" controls>
+                <video width="100%" height="165px" @play="transferToPayment()" controls>
                 </video>
             </div>
             <div class="col-lg-3 custom_col col-sm-12 col-md-12">
-                <video width="100%" height="165px" controls>
+                <video width="100%" height="165px" @play="transferToPayment()" controls>
                 </video>
             </div>
         </div>
@@ -150,7 +153,7 @@ a.active {
         </div>
     </div>
 </div>
-
+ <!--
 <script>
     $(document).ready(function () {
         $('#video1').click(function () {
@@ -159,4 +162,7 @@ a.active {
         $('#podcasts').addClass('active');
     });
 </script>
+-->
+
+</index-not-logged-in-component>
 @endsection

@@ -22,7 +22,8 @@
         "pragmarx/google2fa": "^8.0",
         "pragmarx/google2fa-laravel": "^2.0",
         "pragmarx/google2fa-qrcode": "^3.0",
-        "s-ichikawa/laravel-sendgrid-driver": "^4.0"
+        "s-ichikawa/laravel-sendgrid-driver": "^4.0",
+        "symfony/process": "^6.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

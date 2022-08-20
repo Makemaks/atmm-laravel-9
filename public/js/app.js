@@ -7739,6 +7739,7 @@ window.Vue = (__webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', (__webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]));
+Vue.component('index-not-logged-in-component', (__webpack_require__(/*! ./components/Index_not_logged_in.js */ "./resources/js/components/Index_not_logged_in.js")["default"]));
 Vue.component('admin-create-video-component', (__webpack_require__(/*! ./components/Video/Admin/Create.js */ "./resources/js/components/Video/Admin/Create.js")["default"]));
 Vue.component('admin-index-video-component', (__webpack_require__(/*! ./components/Video/Admin/Index.js */ "./resources/js/components/Video/Admin/Index.js")["default"]));
 Vue.component('admin-edit-video-component', (__webpack_require__(/*! ./components/Video/Admin/Edit.js */ "./resources/js/components/Video/Admin/Edit.js")["default"]));
@@ -9661,6 +9662,32 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
 
       return songs.sort(compare);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/Index_not_logged_in.js":
+/*!********************************************************!*\
+  !*** ./resources/js/components/Index_not_logged_in.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {};
+  },
+  created: function created() {},
+  watch: {},
+  methods: {
+    transferToPayment: function transferToPayment() {
+      window.open("http://allthingsmichaelmclean.local/select_payment", "_blank");
     }
   }
 });
