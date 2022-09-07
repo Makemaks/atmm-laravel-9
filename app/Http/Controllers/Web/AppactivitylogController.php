@@ -183,6 +183,7 @@ class AppactivitylogController extends Controller
      */
     public function destroy($id)
     {
+      /**
       try {
           if(!$this->isCurrentUserAdmin())
               abort(404);
@@ -218,10 +219,12 @@ class AppactivitylogController extends Controller
       } catch (\Throwable $th) {
           throw $th;
       }
+      **/
     }
 
     public function isAppLogLatest($appActLog)
     {
+      /**
       $appactivitylog = Appactivitylog::select('id','action', 'ip_address', 'device_os', 'device_name', 'device_version', 'created_at')
                           ->where('user_id', $appActLog->user_id)
                           ->orderBy('id', 'desc')
@@ -236,12 +239,14 @@ class AppactivitylogController extends Controller
       echo($user->id);
       echo('</pre>');
       exit;
-      **/
+
         if($appActLog->id == $appUser->id)
         {
           $isLatest = $isLatest + 1;
         }
       }
       return $isLatest;
+      **/
+
     }
 }

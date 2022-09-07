@@ -67,6 +67,7 @@
 
           </div>
         </div>
+        <!--
         <div class="row panel panel-default" style="margin-top: 20px;" >
           <button
               type="button"
@@ -82,6 +83,7 @@
           >
               <i class="fa fa-trash">&nbsp; Delete</i>
           </button>
+        -->
             <div class="panel-body" style=" padding: 0px;">
                 <loading :active.sync="isLoadingAppActivityLogList" :can-cancel="false" :is-full-page="false"> </loading>
                 <table class="table table-hover custom-table-css" >
@@ -108,7 +110,7 @@
                     </thead>
                     <tbody v-if="allAppActivityLog.length > 0">
                         <tr v-for="app_activity_log,key in allAppActivityLog">
-                            <td><input type="checkbox" v-model="selectedAppActLog" :value="app_activity_log.id"></td>
+                            <td><!--<input type="checkbox" v-model="selectedAppActLog" :value="app_activity_log.id">--></td>
                             <td>@{{ app_activity_log.action }}</td>
                             @php /*
                             <td>@{{ app_activity_log.apiroute }}</td>

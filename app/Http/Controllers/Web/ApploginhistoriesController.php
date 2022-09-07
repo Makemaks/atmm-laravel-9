@@ -194,6 +194,7 @@ class ApploginhistoriesController extends Controller
      */
      public function destroy($id)
      {
+       /**
          try {
              if(!$this->isCurrentUserAdmin())
                  abort(404);
@@ -228,10 +229,12 @@ class ApploginhistoriesController extends Controller
          } catch (\Throwable $th) {
              throw $th;
          }
+         **/
      }
 
      public function isAppLogInLatest($appLogIn)
      {
+       /**
        $appactivitylog = Apploginhistory::select('id', 'ip_address', 'device_os', 'device_version', 'created_at')
                            ->where('user_id', $appLogIn->user_id)
                            ->orderBy('id', 'desc')
@@ -247,12 +250,13 @@ class ApploginhistoriesController extends Controller
          echo($user->id);
          echo('</pre>');
          exit;
-         **/
+
          if($appLogIn->id == $appUser->id)
          {
            $isLatest = $isLatest + 1;
          }
        }
        return $isLatest;
+       **/
      }
 }

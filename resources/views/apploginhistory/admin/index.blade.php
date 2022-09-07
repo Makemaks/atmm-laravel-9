@@ -58,6 +58,7 @@
 
             </div>
         </div>
+        <!--
         <div class="row panel panel-default" style="margin-top: 20px;" >
           <button
               type="button"
@@ -73,6 +74,7 @@
           >
               <i class="fa fa-trash">&nbsp; Delete</i>
           </button>
+        -->
             <div class="panel-body" style=" padding: 0px;">
                 <loading :active.sync="isLoadingAppLoginHistoryList" :can-cancel="false" :is-full-page="false"> </loading>
                 <table class="table table-hover custom-table-css" >
@@ -92,7 +94,7 @@
                     </thead>
                     <tbody v-if="allAppLoginHistory.length > 0">
                         <tr v-for="login_history,key in allAppLoginHistory">
-                            <td><input type="checkbox" v-model="selectedAppLogInHistory" :value="login_history.id"></td>
+                            <td><!--<input type="checkbox" v-model="selectedAppLogInHistory" :value="login_history.id">--></td>
                             <td>@{{ login_history.user.name }}</td>
                             <td>@{{ login_history.device_os }}</td>
                             <td>@{{ login_history.device_version }}</td>
