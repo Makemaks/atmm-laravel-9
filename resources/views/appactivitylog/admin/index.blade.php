@@ -10,40 +10,18 @@
         max-width: 1000px !important;
         top: 150px !important;
     }
-    .closebtn {
-      margin-left: 18px;
-      font-weight: bold;
-      font-size: 22px;
-      line-height: 20px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .alert {
-      width: 684px;
-    }
 </style>
 @endsection
 
 @section('section')
 <admin-index-appactivitylog-component inline-template>
     <div class="col-sm-12">
-      @if (Session::has('messageAppActError'))
-        <div class="alert alert-danger"><i class="fas fa-exclamation-circle"></i>
-          &nbsp; {{ Session::get('messageAppActError') }}
-          <span class="closebtn" style="color: red;" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-      @endif
-      @if (Session::has('messageAppActSuccess'))
-        <div class="alert alert-success"><i class="fas fa-check-circle"></i>
-          &nbsp; {{ Session::get('messageAppActSuccess') }}
-          <span class="closebtn" style="color: green;" onclick="this.parentElement.style.display='none';">&times;</span>
-        </div>
-      @endif
+
         <div class="row">
           <div class="col-md-6">
             <searched :search="search" @gosearch="getAppActivityLogList('search')"></searched>
           </div>
-          <div class="col-mb-6">
+          <div class="col-md-6">
               <select v-model="select_user" name="select_user" id="select_user" @change="filterByAppActivityLogList()">
                 <option value="">--- All User ---</option>
                 <option v-for="user,key in users" :value="user.user_id">
@@ -66,29 +44,13 @@
               </select>
 
           </div>
+
         </div>
-        <!--
         <div class="row panel panel-default" style="margin-top: 20px;" >
-          <button
-              type="button"
-              id="delete_multiple"
-              :data-id="selectedAppActLog"
-              class="btn btn-danger"
-              data-toggle="modal_test"
-              data-backdrop='static'
-              data-keyboard="false"
-              data-target="#exampleModalCenter"
-              @click="deleteAppActLog(selectedAppActLog)"
-              style="float: right;"
-          >
-              <i class="fa fa-trash">&nbsp; Delete</i>
-          </button>
-        -->
             <div class="panel-body" style=" padding: 0px;">
                 <loading :active.sync="isLoadingAppActivityLogList" :can-cancel="false" :is-full-page="false"> </loading>
                 <table class="table table-hover custom-table-css" >
                     <thead>
-                        <th></th>
                         <th width="20%">Action</th>
                         @php /*
                         <th>Endpoint</th>
@@ -98,19 +60,12 @@
                         <th>User</th>
                         <th>Device Type</th>
                         <th>OS / Version</th>
-                        <th>
-                          <a href="#" @click="sortAppActList('created_at')">
-                            Datetime
-                            <i v-if="sort_order == 'asc'" class="fas fa-chevron-down"></i>
-                            <i v-if="sort_order == 'desc'" class="fas fa-chevron-up"></i>
-                          </a>
-                        </th>
+                        <th>Datetime</th>
                         <th>Device</th>
                         <th>DeviceInfo</th>
                     </thead>
                     <tbody v-if="allAppActivityLog.length > 0">
                         <tr v-for="app_activity_log,key in allAppActivityLog">
-                            <td><!--<input type="checkbox" v-model="selectedAppActLog" :value="app_activity_log.id">--></td>
                             <td>@{{ app_activity_log.action }}</td>
                             @php /*
                             <td>@{{ app_activity_log.apiroute }}</td>
@@ -202,29 +157,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="exampleModalLongTitle">
-                            <i class="fa fa-trash"></i> Delete
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        Are you sure you want to delete the app activity log?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                        <form ref="delete_form" action="" method="post">
-                        {{ csrf_field() }}
-                        {{ method_field('DELETE') }}
-                        <button type="submit" class="btn btn-danger"> Delete </button>
-                        </form>
                     </div>
                 </div>
             </div>

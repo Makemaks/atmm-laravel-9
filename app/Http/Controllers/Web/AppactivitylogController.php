@@ -5,15 +5,9 @@ namespace App\Http\Controllers\Web;
 use App\Models\Appactivitylog;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Session;
-use Illuminate\Support\Facades\DB;
 
 class AppactivitylogController extends Controller
 {
-    private $users;
-    private $all_os;
-    private $all_device_name;
-    private $filter_by_fields;
     /**
      * Display a listing of the resource.
      *
@@ -27,19 +21,24 @@ class AppactivitylogController extends Controller
 
              if($request->ajax()){
 
-               $this->users = Appactivitylog::with('user')->distinct()->get(['user_id']);
-               $this->all_os = Appactivitylog::distinct()->get(['device_os']);
-               $this->all_device_name = Appactivitylog::distinct()->orderBy('device_name', 'asc')->get(['device_name']);
+               $users = Appactivitylog::with('user')->distinct()->get(['user_id']);
+               $all_os = Appactivitylog::distinct()->get(['device_os']);
+               $all_device_name = Appactivitylog::distinct()->orderBy('device_name', 'asc')->get(['device_name']);
 
-               $this->filter_by_fields = array();
-               $this->filter($request);
+               $filter_by_fields = array();
+               if( $request->select_user != '' )
+                 $filter_by_fields['user_id'] = trim($request->select_user);
+               if( $request->select_os != '' )
+                 $filter_by_fields['device_os'] = trim($request->select_os);
+               if( $request->select_device_name != '' )
+                 $filter_by_fields['device_name'] = trim($request->select_device_name);
 
                $appactivitylog = $this->paginate($request, [
                    'items' => (new Appactivitylog())->with('user'),
                    's_fields' => ['apiroutename'],
                    'sortBy' => $request->sort_field,
                    'sortOrder' => $request->sort_order,
-                   'filter_by_fields' => $this->filter_by_fields,
+                   'filter_by_fields' => $filter_by_fields,
                ]);
                $response = [
                     'pagination' => [
@@ -51,9 +50,9 @@ class AppactivitylogController extends Controller
                         'to' => $appactivitylog->lastItem()
                     ],
                     'data' => $appactivitylog,
-                    'users' => $this->users,
-                    'all_os' => $this->all_os,
-                    'all_device_name' => $this->all_device_name,
+                    'users' => $users,
+                    'all_os' => $all_os,
+                    'all_device_name' => $all_device_name,
                     'aws_url' => \Config::get('filesystems.aws_url'),
                 ];
                 return response()->json($response);
@@ -73,51 +72,6 @@ class AppactivitylogController extends Controller
          } catch (\Throwable $th) {
              throw $th;
          }
-     }
-
-     public function filter($request)
-     {
-       if( $request->select_user != '' )
-       {
-         $this->filter_by_fields['user_id'] = trim($request->select_user);
-         $this->all_os = Appactivitylog::select('device_os')
-                                 ->where('user_id',$this->filter_by_fields['user_id'])
-                                 ->distinct()
-                                 ->get(['device_os']);
-         $this->all_device_name = Appactivitylog::select('device_name')
-                                 ->where('user_id',$this->filter_by_fields['user_id'])
-                                 ->distinct()
-                                 ->get(['device_name']);
-       }
-       if( $request->select_os != '' )
-       {
-         $this->filter_by_fields['device_os'] = trim($request->select_os);
-         $this->all_device_name = Appactivitylog::select('device_name')
-                                       ->where('device_os',$this->filter_by_fields['device_os'])
-                                       ->distinct()
-                                       ->get(['device_name']);
-
-         if( $request->select_user != '' )
-         {
-           $this->all_device_name = Appactivitylog::
-                                         select('device_name')
-                                         ->where('user_id',$this->filter_by_fields['user_id'])
-                                         ->where('device_os',$this->filter_by_fields['device_os'])
-                                         ->distinct()
-                                         ->get(['device_name']);
-         }
-         else
-         {
-           $this->users = Appactivitylog::with('user')
-                                       ->where('device_os',$this->filter_by_fields['device_os'])
-                                       ->distinct()
-                                       ->get(['user_id']);
-         }
-       }
-       if( $request->select_device_name != '' )
-       {
-         $this->filter_by_fields['device_name'] = trim($request->select_device_name);
-       }
      }
 
     /**
@@ -181,72 +135,8 @@ class AppactivitylogController extends Controller
      * @param  \App\Appactivitylog  $appactivitylog
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Appactivitylog $appactivitylog)
     {
-      /**
-      try {
-          if(!$this->isCurrentUserAdmin())
-              abort(404);
-
-          $appActLog_user_id = explode(',' , $id);
-          $isValid = 0;
-
-          foreach($appActLog_user_id as $id)
-          {
-            $appActLog = Appactivitylog::findOrFail($id);
-            if($appActLog != null || $appActLog != '')
-            {
-              $isLatestNum = $this->isAppLogLatest($appActLog);
-              $isValid = $isValid + $isLatestNum;
-            }
-          }
-
-          if($isValid != 0)
-          {
-                Session::flash('messageAppActError', "The App Activity Log can't be deleted since it is one of the 5 latest App Activity Log of a user");
-                return back();
-          }
-          else
-          {
-                Session::flash('messageAppActSuccess', "The App Activity Logs deleted successfully");
-                foreach($appActLog_user_id as $id)
-                {
-                  Appactivitylog::findOrFail($id)->delete();
-                }
-          }
-
-          return back();
-      } catch (\Throwable $th) {
-          throw $th;
-      }
-      **/
-    }
-
-    public function isAppLogLatest($appActLog)
-    {
-      /**
-      $appactivitylog = Appactivitylog::select('id','action', 'ip_address', 'device_os', 'device_name', 'device_version', 'created_at')
-                          ->where('user_id', $appActLog->user_id)
-                          ->orderBy('id', 'desc')
-                          ->take(5)
-                          ->get();
-      $isLatest = 0;
-      foreach($appactivitylog as $appUser)
-      {
-      /**
-      echo($appLogIn->id);
-      echo('<pre>');
-      echo($user->id);
-      echo('</pre>');
-      exit;
-
-        if($appActLog->id == $appUser->id)
-        {
-          $isLatest = $isLatest + 1;
-        }
-      }
-      return $isLatest;
-      **/
-
+        //
     }
 }
