@@ -25,6 +25,7 @@ export default {
         },
         sort_field: 'id',
         sort_order: 'desc',
+        /**
         all_device_os: [],
         all_device_version: [],
         all_appLogIn_user: [],
@@ -32,6 +33,7 @@ export default {
         select_device_version: '',
         select_appLogIn_user: '',
         selectedAppLogInHistory: [],
+        **/
 
       }
   },
@@ -83,9 +85,11 @@ export default {
             page: pageno,
             sort_order: this.sort_order,
             sort_field: this.sort_field,
+            /**
             select_device_os: this.select_device_os,
             select_device_version: this.select_device_version,
             select_appLogIn_user: this.select_appLogIn_user,
+            **/
         }
         axios({
             method: 'get',
@@ -101,9 +105,11 @@ export default {
           this.isLoadingAppLoginHistoryList = false
           this.allAppLoginHistory = res.data.data.data
           this.pagination = res.data.pagination
+          /**
           this.all_device_os = res.data.all_device_os
           this.all_device_version = res.data.all_device_version
           this.all_appLogIn_user = res.data.all_appLogIn_user
+          **/
         })
         .catch(error => {
           console.log(error)

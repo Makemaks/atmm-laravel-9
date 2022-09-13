@@ -8990,14 +8990,17 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
         'current_page': 1
       },
       sort_field: 'id',
-      sort_order: 'desc',
+      sort_order: 'desc'
+      /**
       all_device_os: [],
       all_device_version: [],
       all_appLogIn_user: [],
       select_device_os: '',
       select_device_version: '',
       select_appLogIn_user: '',
-      selectedAppLogInHistory: []
+      selectedAppLogInHistory: [],
+      **/
+
     };
   },
   mounted: function mounted() {
@@ -9039,10 +9042,13 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
         search: this.search.text,
         page: pageno,
         sort_order: this.sort_order,
-        sort_field: this.sort_field,
+        sort_field: this.sort_field
+        /**
         select_device_os: this.select_device_os,
         select_device_version: this.select_device_version,
-        select_appLogIn_user: this.select_appLogIn_user
+        select_appLogIn_user: this.select_appLogIn_user,
+        **/
+
       };
       axios({
         method: 'get',
@@ -9057,9 +9063,11 @@ Vue.component('json-tree', vue_json_tree__WEBPACK_IMPORTED_MODULE_2__["default"]
         _this.isLoadingAppLoginHistoryList = false;
         _this.allAppLoginHistory = res.data.data.data;
         _this.pagination = res.data.pagination;
-        _this.all_device_os = res.data.all_device_os;
-        _this.all_device_version = res.data.all_device_version;
-        _this.all_appLogIn_user = res.data.all_appLogIn_user;
+        /**
+        this.all_device_os = res.data.all_device_os
+        this.all_device_version = res.data.all_device_version
+        this.all_appLogIn_user = res.data.all_appLogIn_user
+        **/
       })["catch"](function (error) {
         console.log(error);
         Swal.fire({
