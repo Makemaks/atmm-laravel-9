@@ -128,11 +128,57 @@
         @media only screen and (max-width : 575px) {
 
         }
+        .loader {
+          border: 16px solid #f3f3f3; /* Light grey */
+          border-top: 16px solid #3498db; /* Blue */
+          border-radius: 50%;
+          width: 120px;
+          height: 120px;
+          animation: spin 2s linear infinite;
+          margin:auto;
+          left:0;
+          right:0;
+          top:0;
+          bottom:0;
+          position:fixed;
+        }
+
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
     </style>
 @endsection
 @section('content')
 <index-video-component inline-template>
 <div class="container">
+  <div class="container">
+  <div id = "myDiv">
+    <h1 style="text-align: center">Please wait for the videos to load ....</h1>
+    <div class="loader">
+    </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  </div>
     <div class="banner">
         <div class="row">
             <div class="col-md-6">
@@ -304,5 +350,11 @@
         </div>
     </div>
 </div>
+
+<script type = "text/javascript">
+  setTimeout(function(){
+    document.getElementById("myDiv").style.display="none";
+  }, 10000);
+</script>
 </index-video-component>
 @endsection
