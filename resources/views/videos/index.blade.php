@@ -351,10 +351,5 @@
     </div>
 </div>
 
-<script type = "text/javascript">
-  setTimeout(function(){
-    document.getElementById("myDiv").style.display="none";
-  }, 10000);
-</script>
 </index-video-component>
 @endsection

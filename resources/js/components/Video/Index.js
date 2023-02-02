@@ -7,8 +7,13 @@ export default {
         memoryLane: {},
         songwriterSundaySchool: {},
         miscellaneousMichael: {},
+        poster:''
     }),
     mounted () {
+        setTimeout(function(){
+            document.getElementById("myDiv").style.display="none";
+          }, 10000);
+
         this.getVideos();
 
         $('#videoModal').on('hide.bs.modal', () => {
